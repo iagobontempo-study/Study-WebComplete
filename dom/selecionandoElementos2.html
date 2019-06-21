@@ -9,8 +9,42 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>     
+        /*Usando querySelector é nescessario passar # como parametro*/         
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        /* Funcao selecionar */
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        /* Funcao deselecionar */
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+        
+        selecionar('div')
+
+        deselecionar('*')
+        selecionar('.terceiro.ultimo')
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)') /*pega tudo que nao tenha a #primeiro */
+
+        deselecionar('*')
+        selecionar(':nth-child(1)')
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') /*primeiro elemento de um determinado tipo*/
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') /*selecionar atributo - no caso é */
+
+        /* LEMBRANDO QUE É POSSIVEL TRANSFORMAR O QUERYSELECTOR(nodelist) EM ARRAY
+        Pode se usar: 
+        
+            Array.from(document.querySelectorAll())
+            ou
+            [...document.querySelectorAll()]
+        
+        */
     </script>
 </body>
 </html>

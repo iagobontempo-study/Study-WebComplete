@@ -31,7 +31,15 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        /* Modos de selecionar um formulario */
+        document.forms
+        document.forms[0]
+        document.getElementsByName('pesquisa')
+        document.pesquisa /* Melhor modo! usando campo name="pesquisa" no form */
+        document.pesquisa.q /* Selecionando do mesmo modo mais a dentro */
+        document.pesquisa.q.value = 'Linux Brasil' /* modificando seu valor */
+        document.pesquisa.hl.value = 'en-us' /* modificando seu valor */
+        
     </script>
 </body>
 

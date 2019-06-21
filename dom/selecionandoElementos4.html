@@ -22,7 +22,39 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        /*Colocando funcao no prototype (para poder usar)*/
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log 
+        /* APENAS UM MODO PARA DEBUGAR MAIS FACIL DE ACORDO COM AULA */
+
+        const list = document.querySelector('div ul')
+        list.parentNode.log() /*Trouxe a div ul*/
+        list.childNodes.log() /*Trouxe uma nodelist*/
+
+        const primeiro = list.firstChild /*Primeiro filho (se houver espaço no html, ele pode vir)*/
+        primeiro.log()
+        primeiro.nextSibling.log() /*Em cima do firstChild usou o nextSibling para achar*/
+
+        const ultimo = list.lastChild /* ultimo filho (se houver espaço no html, ele pode vir) */
+        ultimo.log()
+        ultimo.previousSibling.log() /*Em cima do firstChild usou o previousSibling para achar*/
+
+        /*Mais interessante*/
+        list.children.log() /*Trouxe HTMLCollections*/
+        list.firstElementChild.log() /*pegou o primeiro elemento filho*/
+        list.lastElementChild.log() /*pegou ultimo elemento filho */
+        list.parentNode.previousElementSibling.log() /*Elemento irmao anterior ao parent da lista. ou seja o Inicio*/
+
+
+        /*De fato o melhor modo de pegar é com o QuerySelector*/
+        document.querySelectorAll('div ul li')
+        
     </script>
 </body>
 

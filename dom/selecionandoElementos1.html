@@ -10,7 +10,23 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque');
+
+        /* Transformando HTMLColections em array com funcão "Array.from()" */
+        const divs = document.getElementsByTagName('div') /*Pegou todas as div*/
+        /*Pegou todos elementos div, percorreu cada um deles removendo a classe destaque */
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        /*Outra forma de transformar HTMLColections em array é com spread*/
+        const divsArray = [...divs]
+        /*Pegou todos elementos div, percorreu cada um deles adicionando a classe destaque */
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+
     </script>
 </body>
 </html>
