@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .flex-container {
+            display: flex;
+            width: 400px;
+            height: 600px;
+        }
+
+        .flex-container div:nth-child(3) {  /*Aplicar propriedade no terceiro filho*/
+            background-color: indianred;
+            order: 1;
+            order: 0;
+            order: -1;
+            align-self: center; /*Alinha o elemento*/
+            align-self: flex-end; /*Alinha o elemento*/
+            align-self: flex-start; /*Alinha o elemento*/
+            align-self: stretch; /*Alinha o elemento*/
+        }
+
+        .flex-container div {
+            width: 500px;
+            flex-grow: 0; /*pega o espaço que sobrou do container, soma os pesos (que voce aplica) e divide para os itens*/
+            flex-grow: 1; /*no caso "1", todos irao crescer iguais*/
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+
+        .flex-container {
+            width: 600px;
+            flex-shrink: 1; /*é o flex-grow mas que diminui */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
