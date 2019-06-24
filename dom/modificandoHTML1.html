@@ -9,7 +9,35 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body')
+        
+        const div1 = document.createElement('div') //Criou div com createElement
+        div1.classList.add('destaque') // Criou classe com classList.add
+        div1.innerHTML = 'Primeiro' // Adicionou conteudo á div
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor') // Criando atributo dentro de div2
+        div2.innerHTML = 'Segundo' // Adicionou conteudo á div
+        
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p) // Adicionando paragrafo dentro da DIV > vai colocar o P no ultimo elemento do pai(div)
+
+        body.appendChild(div1) //Inserindo / adicionando div dentro do body
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const text = document.createTextNode('Antes...') //Criou um texto e armazenou na variavel 
+        // inserir mais detalhadamente, colocando posicão
+        div3.insertBefore(text, div3.childNodes[0]) // Pegou a div3 e inseriu o texto na posição 0 da div
+
+        // Clonando elemento div3
+        const div4 = div3.cloneNode(true) //True copia todo elemento junto com seus filhos - com false não copia filho
+        
+        body.appendChild(div4)
+        //body.removeChild(div1)
+
     </script>
 </body>
 
