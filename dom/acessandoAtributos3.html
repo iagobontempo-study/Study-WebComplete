@@ -16,7 +16,14 @@
         </ul>
     </div>
     <script>
-        // ...
+        const list = document.querySelector('#compras')
+        
+        //* somente leitura */
+        console.log(list.attributes)
+        console.log(list.attributes[0]) /* Acessando a partir do indice */
+        console.log(list.attributes.destino) /* Acessando a partir do atributo */
+        // console.log(lista.attributes.data-urgencia) /invalido
+        console.log(lista.attributes['data-urgencia'])
     </script>
 </body>
 
