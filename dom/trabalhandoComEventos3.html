@@ -45,7 +45,23 @@
     </div>
     <div class="direita" wm-dropzone></div>
     <script>
-        // ...
+        const items = document.querySelectorAll('[wm-dropzone] .item')
+        items.forEach((item, index) =>{
+            item.draggable = true // Permite que elemento seja arrastado
+            item.id = item.id || `draggable-item-${index}` // Gerando id a partir do index
+            item.ondragstart = e => //inicio do evento
+                e.dataTransfer.setData('item-id', e.target.id) //setou o item que esta arrastando
+        })
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault() // ondragover acontece antes do evento que queremos tratar (o drop), se não tratar este evento, o proximo não sera chamado
+            dropzone.ondrop = function(e) {
+                const id = e.dataTransfer.getData('item-id') // pegou item setado na linha 53
+                const item = document.getElementById(id)
+                dropzone.appendChild(item) // só ira colocar o item onde foi marcado como dropzone
+            }
+        })
     </script>
 </body>
 
