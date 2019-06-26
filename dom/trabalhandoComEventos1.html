@@ -9,9 +9,32 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)"-->
+
+        <a espera href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault() //previne a ação comum
+
+            const div = document.querySelector('div')
+            div.innerHTML = "Sera redirecionado em 5s"
+
+            setTimeout(() => {
+                const link = e.target //todo evento(e) possui um target > E.TARGET seria onde eu clicaria
+                window.location.href = link.href //window.location.href é a barra da url, ou seja estou colocando o link.href na barra
+            }, 5000) //5 segundos em milisegundos
+
+            // const a = document.querySelector('a')
+            // a.onclick = navegarEm5s
+
+            // D I C A  I M P O R T A N T E  
+            // UTILIZAR "CLASS" APENAS PARA APLICAR ESTILOS.CSS
+            // D I C A  I M P O R T A N T E  
+
+            // MELHOR MODO DE FAZER, USANDO ATRIBUTOS PERSONALIZADOS
+            const a = document.querySelector('[espera]')
+            a.onclick = navegarEm5s
+        }
     </script>
 </body>
