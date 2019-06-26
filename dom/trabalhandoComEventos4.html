@@ -28,9 +28,40 @@
                 <option value="pt-br">Português (Brasil)</option>
                 <option value="en-us">Inglês (Americano)</option>
             </select>
-        <button wm-submit>Pesquisar</button>
+        <button wm-submit>Pesquisar</button> <!-- Criado atributo personalizado para interceptar a submissao de um formulario -->
     </form>
     <script>
-        // ...
+        const submit = document.querySelector('[wm-submit]')
+        submit.onclick = function (e) {
+            e.preventDefault()
+
+            const form = e.target.parentNode // e.target.parentNode pegou o formulario, pois pegou o pai do submit
+            const formData = new FormData(form)
+            formData.append('ajax', true) // adicionou novo campo no formulario
+            console.log(formData.get('q')) // apenas para visualizar no console o get
+            console.log(formData.has('hl'))
+
+            for (let dado of formData) {
+                console.log(dado)
+            }
+        }
+
+        // OUTRO MODO DE FAZER, MANIPULANDO "ONSUBMIT" AO INVEZ DE ONCLICK
+
+        // const form = document.forms[0] // pegou formulario de indice 0
+        // form.onsubmit = function (e) {
+        //     e.preventDefault()
+
+        //     const form = e.target// e.target pegou o formulario
+        //     const formData = new FormData(form)
+        //     formData.append('ajax', true) // adicionou novo campo no formulario
+        //     console.log(formData.get('q')) // apenas para visualizar no console o get
+        //     console.log(formData.has('hl'))
+
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+        // }
+
     </script>
 </body>
