@@ -1,0 +1,80 @@
+/* CODIGO HTML FEITO PARA VISUALIZAR O CSS ANTES DE TUDO
+<div wm-flappy>
+        <img class="passaro" src="./imgs/passaro.png" alt="passaro"></img>
+        <div class="par-de-barreiras">
+            <div class="barreira">
+                <div class="corpo"></div>
+                <div class="borda"></div> 
+            </div>
+            <div class="barreira">
+                <div class="borda"></div> 
+                <div class="corpo"></div>
+            </div>
+        </div>
+    <div class="progresso">100</div>
+</div>
+*/
+
+* {
+    box-sizing: border-box; /* As propiedades de largura (width) e de altura (height) incluem o tamanho padding size e a propriedade border */
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf') /*Importando fonte*/
+}
+
+[wm-flappy] {
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 700px;
+    width: 1200px;
+    margin: 15px;
+    background-color: deepskyblue;
+    overflow: hidden; /* Qualquer coisa que estiver fora da div, sera escondida */
+}
+
+.passaro {
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+    top: 50%;
+}
+
+.par-de-barreiras {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barreira {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barreira .borda {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barreira .corpo {
+    height: 40px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Pixel';
+    font-size: 70px;
+}
