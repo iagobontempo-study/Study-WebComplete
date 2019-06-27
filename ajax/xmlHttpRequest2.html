@@ -18,7 +18,7 @@
 </head>
 
 <body class="conteudo exercicio">
-    <input type="file" name="arquivo" />
+    <input type="file" name="arquivo" /> <!-- "arquivo" nome do input, foi marcado no backend server.js-->
     <div class="progresso"></div>
 
     <script>
@@ -39,8 +39,9 @@
             const formData = new FormData()
             const inputFile = e.target
             formData.append(inputFile.name, inputFile.files[0])
+
             ajaxUpload({
-                url: "upload",
+                url: "upload", // "upload" url do backend que envia o post em server.js
                 formData: formData,
                 progresso(dados) {
                     const progresso = document.querySelector('.progresso')
