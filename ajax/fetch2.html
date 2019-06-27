@@ -29,6 +29,25 @@
     </form>
     <div id="resultado"></div>
     <script>
-        // ...
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+
+            const form = e.target
+            const data = new FormData(form)
+            data.append('ajax', true)
+
+            const options = {
+                method: form.method, //parametro da propria tag html
+                body: new URLSearchParams(data)
+            }
+
+            fetch(form.action, options) //form.action parametro da propria tag html
+                .then(resp => resp.json())
+                .then(json => {
+                    const resultado = document.getElementById('resultado') // resultado id da tag linha 30
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+
+        }
     </script>
 </body>
