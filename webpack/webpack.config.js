@@ -9,7 +9,11 @@ module.exports = {
     entry: './src/principal.js',
     output: {
         filename: 'principal.js',
-        path: __dirname + '/pulic'
+        path: __dirname + '/public'
+    },
+    devServer: {
+        contentBase: "./public",
+        port: 9000
     },
     optimization: {
         minimizer: [
