@@ -34,6 +34,10 @@ module.exports = {
                 'css-loader', //interpreta @import, url()... (dependencias precisam estar instaladas)
                 'sass-loader',
             ]
-        }]
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
+        }
+    ]
     }
 }
