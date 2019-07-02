@@ -1,12 +1,6 @@
 import React from 'react'
 import Filho from './Filho'
-
-function childrenWithProps(props) {
-    return React.Children.map(props.children, child => {
-        return React.cloneElement(child, 
-            { ...props, ...child.props})
-    })
-}
+import { childrenWithProps } from '../utils/utils'
 
 export default props => 
     <div>
