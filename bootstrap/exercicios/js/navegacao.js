@@ -12,6 +12,7 @@
             .then(resp => resp.text())
             .then(html => {
                 destino.innerHTML = html
+                eval(html.match(/\<script\>([\s\S]*)<\/script\>/)[1]) //Faz com que possa utitilizar o javascript de cada pagina com a navegação ajax
             })
     }
 
