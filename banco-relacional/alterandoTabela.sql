@@ -1,0 +1,1 @@
+alter table empresas modify cnpj varchar(14);
