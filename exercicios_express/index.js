@@ -1,22 +1,38 @@
 const express = require('express')
 const app = express()
 
-app.get("/opa", (req, res) => {
-   res.json([
-       {id: 1, name: 'ana', position: 1},
-       {id: 3, name: 'bia', position: 5},
-       {id: 7, name: 'carlos', position: 3}
-    ])
-   
-    // Retornar json
+app.use((req, res, next) => {
+    console.log('Antes...')
+    next()
+})
+
+app.get('/opa', (req, res, next) => {
+    console.log('Durante...')
+    res.json({
+        data: [
+            {id: 7, name: 'Ana', position: 1 },
+            {id: 34, name: 'Bia', position: 2 },
+            {id: 73, name: 'Carlos', position: 3 }
+        ],
+        count: 30,
+        skip: 0,
+        limit: 3,
+        status: 200
+    })
+
+    next()
+    
     // res.json({
-    //     name: "ípad 32gb",
-    //     price: 1599.99,
+    //     name: 'iPad 32Gb',
+    //     price: 1899.00,
     //     discount: 0.12
     // })
 
-    // Retornar html
-    // res.send('<button>Estou bem!</button>')
+    // res.send('<h1>Estou bem!</h1><br><br><h2>Tipo é HTML!</h2>')
+})
+
+app.use((req, res) => {
+    console.log('Depois...')
 })
 
 app.listen(3000, () => {
